@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "151810016918",
+    "firebase_url": "https://turtlevpn-5fd40.firebaseio.com",
+    "project_id": "turtlevpn-5fd40",
+    "storage_bucket": "turtlevpn-5fd40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151810016918:android:04d68c531375de5b",
+        "android_client_info": {
+          "package_name": "tech.turtlesoftsol.TurtleVPN"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151810016918-mefte8c4er94f4rqt6ckik42k49742t0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.turtlesoftsol.TurtleVPN",
+            "certificate_hash": "c52b36712ff03fda3a074efacb75ec39a8e5152e"
+          }
+        },
+        {
+          "client_id": "151810016918-146f16960jr3v9behpog034b30ldgaet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDpjH9SmzRVvgBOWDjqi-zV-8yqy98Y9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151810016918-146f16960jr3v9behpog034b30ldgaet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

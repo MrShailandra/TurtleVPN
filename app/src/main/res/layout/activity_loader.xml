@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bgr"
+    tools:context="tech.turtlesoftsol.TurtleVPN.activity.LoaderActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout"
+        >
+
+        <TextView
+            android:id="@+id/loaderPremiumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading_additional_servers"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/progress_icon"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/activity_r"
+            android:scaleY="2"
+            android:scaleX="2"
+            />
+        <TextView
+
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="Please Wait While We"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="@color/mapNameCountry"/>
+        <TextView
+            android:id="@+id/commentsText"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/mapNameCountry"/>
+        <TextView
+            android:id="@+id/quote_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="@string/quotes_here"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@color/mapNameCountry"/>
+
+        <com.daimajia.numberprogressbar.NumberProgressBar
+            android:id="@+id/number_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

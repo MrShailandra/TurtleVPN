@@ -1,0 +1,45 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kusenko.myapplication.MainActivity">
+    <item
+        android:id="@+id/actionShare"
+        android:orderInCategory="100"
+        android:title="@string/action_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/actionRefresh"
+        android:orderInCategory="101"
+        android:title="@string/action_refresh"
+        android:icon="@drawable/ic_cached_white_36dp"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/actionCurrentServer"
+        android:orderInCategory="102"
+        android:title="@string/action_current_connection"
+        android:icon="@drawable/ic_vpn_key_white_24dp"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/actionGetMoreServers"
+        android:orderInCategory="103"
+        android:title="@string/more_servers"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/actionAbout"
+        android:orderInCategory="104"
+        android:title="@string/action_about"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="105"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_bookmarks"
+        android:orderInCategory="105"
+        android:title="@string/bookmarks"
+        app:showAsAction="never" />
+
+</menu>
