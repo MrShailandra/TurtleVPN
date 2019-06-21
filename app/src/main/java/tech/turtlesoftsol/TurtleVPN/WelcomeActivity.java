@@ -43,13 +43,6 @@ public class WelcomeActivity extends AppCompatActivity {
             launchHomeScreen();
             finish();
         }
-
-        SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        editor.putBoolean("connected",false);
-        editor.commit();
-
         
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
