@@ -163,6 +163,23 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        
+        SharedPreferences sharedPreferences  = getDefaultSharedPreferences(getApplicationContext());
+
+        boolean b = sharedPreferences.getBoolean("connected",false);
+        Button button = findViewById(R.id.homeBtnRandomConnection);
+
+        if(b == true)
+        {
+            button.setText("Connected");
+            button.setEnabled(false);
+        }
+        else
+        {
+          button.setText(R.string.quick_connect);
+          button.setEnabled(true);
+        }
+        
         invalidateOptionsMenu();
 
         initDetailsServerOnMap();
