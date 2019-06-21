@@ -104,6 +104,7 @@
     There are lots of server avalible for connect from various contry. \n you can unlock any website with TurtleVPN</string>
     <string name="quick_connect">Quick Connect!</string>
     <string name="quotes_here">1 Quote Avalible Soon</string>
+    <string name="turtlevpn_speedtest">TurtleVPN SpeedTest</string>
     <!-- TODO - add your ad unit Ids -->
     <!-- AdMob ad unit IDs -->
 </resources>

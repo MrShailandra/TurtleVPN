@@ -279,8 +279,8 @@
             </LinearLayout>
             <Button
                 android:id="@+id/serverConnect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:text="@string/server_btn_connect"
                 style="@style/buttons"
                 android:textAllCaps="false"

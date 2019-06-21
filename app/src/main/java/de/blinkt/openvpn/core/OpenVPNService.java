@@ -8,6 +8,7 @@ package de.blinkt.openvpn.core;
 import android.Manifest.permission;
 import android.annotation.TargetApi;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.UiModeManager;
@@ -17,6 +18,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.VpnService;
 import android.os.Binder;
@@ -28,6 +30,7 @@ import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 
+import android.support.annotation.RequiresApi;
 import android.system.OsConstants;
 import android.text.TextUtils;
 import android.util.Log;
@@ -155,7 +158,14 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
         //int icon = getIconByConnectionStatus(status);
         int icon = R.drawable.ic_app_notif;
-        android.app.Notification.Builder nbuilder = new Notification.Builder(this);
+        String channelID = "" ;
+        android.app.Notification.Builder nbuilder ;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            channelID = createNotificationChannel("my_service", "My Background Service") ;
+            nbuilder = new Notification.Builder(this, channelID);
+        }
+        else
+            nbuilder = new Notification.Builder(this);
 
         if (mProfile != null)
             nbuilder.setContentTitle(getString(R.string.notification_title, mProfile.mName));
@@ -808,7 +818,15 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
             mDomain = domain;
         }
     }
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String createNotificationChannel(String channelId, String channelName){
+        NotificationChannel chan = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
+        chan.setLightColor(Color.BLUE) ;
+        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationManager service = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        service.createNotificationChannel(chan);
+        return channelId ;
+    }
     /**
      * Route that is always included, used by the v3 core
      */

@@ -1,6 +1,7 @@
 package tech.turtlesoftsol.TurtleVPN.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -35,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 import tech.turtlesoftsol.TurtleVPN.BuildConfig;
 import tech.turtlesoftsol.TurtleVPN.R;
 
+import tech.turtlesoftsol.TurtleVPN.SpeedTest;
 import tech.turtlesoftsol.TurtleVPN.model.Country;
 import tech.turtlesoftsol.TurtleVPN.model.Server;
 import tech.turtlesoftsol.TurtleVPN.util.BitmapGenerator;
@@ -61,9 +64,11 @@ import java.util.List;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 public class HomeActivity extends BaseActivity {
     FloatingActionMenu materialDesignFAM;
-    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3,floatingActionButton4,floatingActionButton5,floatingActionButton6;
+    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3,floatingActionButton4,floatingActionButton5,floatingActionButton6,floatingActionButton7;
     private MapView mapView;
 
     public static final String EXTRA_COUNTRY = "country";
@@ -96,7 +101,7 @@ public class HomeActivity extends BaseActivity {
         floatingActionButton4 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item4);
         floatingActionButton5 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item5);
         floatingActionButton6 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item6);
-
+        floatingActionButton7 = (FloatingActionButton) findViewById(R.id.material_design_floating_action_menu_item7);
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -145,6 +150,12 @@ public class HomeActivity extends BaseActivity {
                 startActivity(new Intent(getApplicationContext(), BookmarkServerListActivity.class));
             }
         });
+        floatingActionButton7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu third item clicked
+                startActivity(new Intent(getApplicationContext(), SpeedTest.class));
+            }
+        });
 
         homeContextRL = (RelativeLayout) findViewById(R.id.homeContextRL);
         countryList = dbHelper.getUniqueCountries();
@@ -163,6 +174,21 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        SharedPreferences sharedPreferences  = getDefaultSharedPreferences(getApplicationContext());
+
+        boolean b = sharedPreferences.getBoolean("connected",false);
+        Button button = findViewById(R.id.homeBtnRandomConnection);
+
+        if(b == true)
+        {
+            button.setText("Connected");
+            button.setEnabled(true);
+        }
+        else
+        {
+            button.setText(R.string.quick_connect);
+            button.setEnabled(true);
+        }
         invalidateOptionsMenu();
 
         initDetailsServerOnMap();

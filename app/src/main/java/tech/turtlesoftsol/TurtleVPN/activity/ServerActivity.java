@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.net.VpnService;
@@ -43,6 +44,7 @@ import android.widget.Toast;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 import tech.turtlesoftsol.TurtleVPN.BuildConfig;
+import tech.turtlesoftsol.TurtleVPN.SpeedTest;
 import tech.turtlesoftsol.TurtleVPN.model.Server;
 import tech.turtlesoftsol.TurtleVPN.util.ConnectionQuality;
 import tech.turtlesoftsol.TurtleVPN.util.PropertiesService;
@@ -62,6 +64,8 @@ import de.blinkt.openvpn.core.OpenVPNService;
 import de.blinkt.openvpn.core.ProfileManager;
 import de.blinkt.openvpn.core.VPNLaunchHelper;
 import de.blinkt.openvpn.core.VpnStatus;
+
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class ServerActivity extends BaseActivity {
 
@@ -154,7 +158,7 @@ public class ServerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 sendTouchButton("adsFiltering");
-                    }
+            }
         });
 
         adbBlockCheck.setChecked(defaultFilterAds);
@@ -327,6 +331,11 @@ public class ServerActivity extends BaseActivity {
                         PropertiesService.setShowRating(false);
                         showRating();
                     } else {
+                        SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        editor.putBoolean("connected",true);
+                        editor.commit();
                         chooseAction();
                     }
                 }
@@ -446,6 +455,12 @@ public class ServerActivity extends BaseActivity {
 
     private void stopVpn() {
         //prepareStopVPN();
+        SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean("connected",false);
+        editor.commit();
+
         ProfileManager.setConntectedVpnProfileDisconnected(this);
         if (mVPNService != null && mVPNService.getManagement() != null)
             mVPNService.getManagement().stopVPN(false);
@@ -551,10 +566,10 @@ public class ServerActivity extends BaseActivity {
                 case ADBLOCK_REQUEST:
                     Log.d(IAP_TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
 
-                    }
-
             }
+
         }
+    }
 
 
     private void chooseAction() {
@@ -594,14 +609,11 @@ public class ServerActivity extends BaseActivity {
                 startActivity( new Intent( Intent.ACTION_VIEW, Uri.parse("http://google.com")));
             }
         });
-        ((Button)view.findViewById(tech.turtlesoftsol.TurtleVPN.R.id.successPopUpBtnDesktop)).setOnClickListener(new View.OnClickListener() {
+        ((Button)view.findViewById(tech.turtlesoftsol.TurtleVPN.R.id.successPopUpBtnSpeedTest)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendTouchButton("successPopUpBtnDesktop");
-                Intent startMain = new Intent(Intent.ACTION_MAIN);
-                startMain.addCategory(Intent.CATEGORY_HOME);
-                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(startMain);
+                sendTouchButton("successPopUpBtnSpeedTest");
+                startActivity(new Intent(getApplicationContext(), SpeedTest.class));
             }
         });
         ((Button)view.findViewById(tech.turtlesoftsol.TurtleVPN.R.id.successPopUpBtnClose)).setOnClickListener(new View.OnClickListener() {

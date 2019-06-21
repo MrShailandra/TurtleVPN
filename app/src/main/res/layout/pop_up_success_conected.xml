@@ -34,10 +34,10 @@
             android:text="@string/open_browser"
             style="@style/buttonsPopUp"/>
         <Button
-            android:id="@+id/successPopUpBtnDesktop"
+            android:id="@+id/successPopUpBtnSpeedTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/show_my_desktop"
+            android:text="Speed Test"
             style="@style/buttonsPopUp"/>
         <Button
             android:id="@+id/successPopUpBtnClose"

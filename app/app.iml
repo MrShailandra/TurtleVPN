@@ -205,6 +205,7 @@
     <orderEntry type="library" name="com.android.support:support-fragment-26.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-vector-drawable-26.1.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-measurement-api-16.4.0" level="project" />
+    <orderEntry type="library" name="__local_aars__:E.\Base\v\TurtleVPN\app\libs\achartengine-1.2.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-26.1.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-measurement-impl-16.4.0" level="project" />
     <orderEntry type="library" name="com.github.ViksaaSkool:AwesomeSplash-v1.0.0" level="project" />

@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#1c3f61</color>
     <color name="colorAccent">#356690</color>
+    <color name="colorT">#356690</color>
     <color name="bg">#000</color>
     <color name="popUpBg">#ffffff</color>
     <color name="listDivider">#356690</color>
@@ -15,11 +16,11 @@
     <color name="secondary_color">#1c3f60</color>
     <color name="mapLine">#ffffff</color>
 
-    <color name="toolbarTitle">#cbecfd</color>
-    <color name="toolbarBg">#356690</color>
-    <color name="background">#cbecfd</color>
-    <color name="buttonText">#cbecfd</color>
-    <color name="buttonBg">#356690</color>
+    <color name="toolbarTitle">#ffffff</color>
+    <color name="toolbarBg">#a418ed</color>
+    <color name="background">#a418ed</color>
+    <color name="buttonText">#ffffff</color>
+    <color name="buttonBg">#a418ed</color>
 
     <color name="totalServers">#ffffff</color>
 
