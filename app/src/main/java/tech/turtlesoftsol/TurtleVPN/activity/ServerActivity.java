@@ -327,6 +327,11 @@ public class ServerActivity extends BaseActivity {
                         PropertiesService.setShowRating(false);
                         showRating();
                     } else {
+                        SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        editor.putBoolean("connected",true);
+                        editor.commit();
                         chooseAction();
                     }
                 }
@@ -446,6 +451,12 @@ public class ServerActivity extends BaseActivity {
 
     private void stopVpn() {
         //prepareStopVPN();
+        SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean("connected",false);
+        editor.commit();
+
         ProfileManager.setConntectedVpnProfileDisconnected(this);
         if (mVPNService != null && mVPNService.getManagement() != null)
             mVPNService.getManagement().stopVPN(false);
