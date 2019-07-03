@@ -39,6 +39,6 @@
 
 <hr>
 <h2><center>Library Used in this Project </center></h2>
-<a href = "https://github.com/daimajia/NumberProgressBar">NumberProgressBar</a>
-<a href =" https://github.com/ViksaaSkool/AwesomeSplash">AwesomeSplash</a>
-<a href = "https://github.com/Clans/FloatingActionButton">FloatingActionButton</a> 
+<a href = "https://github.com/daimajia/NumberProgressBar">NumberProgressBar</a><br>
+<a href = "https://github.com/ViksaaSkool/AwesomeSplash">AwesomeSplash</a><br>
+<a href = "https://github.com/Clans/FloatingActionButton">FloatingActionButton</a><br> 
