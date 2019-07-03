@@ -29,3 +29,16 @@
 <p>&nbsp;</p>
 <p style="text-align: center;"><strong>Check Out It On Google Play store</strong></p>
 <p style="text-align: center;"><a href="https://play.google.com/store/apps/details?id=tech.turtlesoftsol.TurtleVPN"><strong><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="" width="400" height="155" /></strong></a></p>
+
+<hr>
+<h2><center>How to Build This Project </center></h2>
+<p>Make sure You have Java And Android Studio Installed on your System</p>
+<p>Just Import this project and sync</p>
+<p>Install Fabric Plugin and login it and get your Fabric key.</p>
+<p>Done</p>
+
+<hr>
+<h2><center>Library Used in this Project </center></h2>
+<a href = "https://github.com/daimajia/NumberProgressBar">NumberProgressBar</a>
+<a href =" https://github.com/ViksaaSkool/AwesomeSplash">AwesomeSplash</a>
+<a href = "https://github.com/Clans/FloatingActionButton">FloatingActionButton</a> 
